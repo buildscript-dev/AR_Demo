@@ -13,10 +13,20 @@ import io.github.sceneview.node.ModelNode
 object Utils {
     val protos = mapOf(
         "Cube" to "cube.glb",
-//        "Ball2" to "ball2.glb",
-//        "Ball3" to "ball3.usdz",
-        "Ball4" to "ball4.gltf",
-    )
+        "Triangle" to "triangle.glb",
+        "Soccer Ball" to "soccer_ball",
+        "Cake" to "cake.glb",
+        "Meal" to "meal.glb",
+        "Ironman" to "iron_man.glb",
+        "Spiderman" to "spiderman.glb",
+        "Dr Strange" to "dr_strange.glb",
+        "Poke Ball" to "poke_ball",
+        "Pikachu" to "pikachu.glb",
+        "Charmandal" to "charmandal.glb",
+        "Vintage Car" to "car.glb",
+        "Lamborghini" to "lamborghini.glb",
+        "Warhorn" to "warnhorn.glb",
+        )
 
 
     fun getModelForProto(proto: String): String {
