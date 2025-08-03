@@ -29,7 +29,7 @@ import kotlin.random.Random
 @Composable
 fun ProtoScreen(navController: NavController){
 val listOfProtos = listOf(
-    "Cube" , "Triangle"
+    "Cube"
 )
     Column{
         Box(modifier = Modifier.height(60.dp)) {

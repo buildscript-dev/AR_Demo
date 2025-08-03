@@ -7,6 +7,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
+import com.example.ardemo.utils.Utils
 import com.google.ar.core.Config
 import com.google.ar.core.Frame
 import com.google.ar.core.TrackingFailureReason
@@ -88,7 +89,7 @@ fun ARScreen(navController: NavController, model: String){
                             materialLoader = materialLoader,
                             modelInstance = modelInstance,
                             anchor = it,
-                            model = Utils.getModelForAlphabet(model)
+                            model = Utils.getModelForProto(model)
                         )
                         childNodes += nodeModel
                     }

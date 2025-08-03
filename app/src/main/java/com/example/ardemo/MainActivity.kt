@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     }
                     composable<ARScreen>{
                        val proto = it.toRoute<ARScreen>().model
-                        ARScreen()
+                        ARScreen(navController, proto)
                     }
                     composable<ProtoScreen>{
                         ProtoScreen(navController)
