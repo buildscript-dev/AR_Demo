@@ -1,16 +1,22 @@
 package com.example.ardemo
 
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
+import com.example.ardemo.navigation.ARScreen
+import com.example.ardemo.navigation.HomeScreen
+import com.example.ardemo.navigation.ProfileScreen
+import com.example.ardemo.navigation.ProtoScreen
+import com.example.ardemo.screen.ARScreen
+import com.example.ardemo.screen.HomeScreen
+import com.example.ardemo.screen.ProfileScreen
+import com.example.ardemo.screen.ProtoScreen
 import com.example.ardemo.ui.theme.ARDemoTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +25,25 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ARDemoTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                val navController = rememberNavController()
+                NavHost(navController = navController,
+                    startDestination = HomeScreen,){
+                    composable<HomeScreen>{
+                        HomeScreen(navController)
+                    }
+                    composable<ARScreen>{
+                       val proto = it.toRoute<ARScreen>().model
+                        ARScreen()
+                    }
+                    composable<ProtoScreen>{
+                        ProtoScreen(navController)
+                    }
+                    composable<ProfileScreen>{
+                        ProfileScreen()
+                    }
+
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ARDemoTheme {
-        Greeting("Android")
     }
 }
