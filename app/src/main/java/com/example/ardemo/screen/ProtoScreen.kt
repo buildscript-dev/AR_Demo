@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,7 +31,7 @@ fun ProtoScreen(navController: NavController){
 val listOfProtos = listOf(
     "Cube" , "Triangle"
 )
-    Column {
+    Column{
         Box(modifier = Modifier.height(60.dp)) {
             Text(text = "Prototypes", fontSize = 24.sp, modifier = Modifier.align(Alignment.Center))
         }
@@ -60,7 +61,8 @@ fun ProtoItem(proto: String, onClick:() -> Unit){
     val color = remember(proto) {
         generateRandomLightColor()
     }
-    Box(modifier = Modifier.size(60.dp)
+    Box(modifier = Modifier.size(100.dp)
+        .padding(16.dp)
         .clip(RoundedCornerShape(16.dp))
         .background(color)
         .clickable{onClick()}){
