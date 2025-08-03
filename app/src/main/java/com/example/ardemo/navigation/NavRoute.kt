@@ -13,4 +13,4 @@ data class ARScreen(val model: String)
 object ProtoScreen
 
 @Serializable
-object ProfileScreen
+object AboutScreen
