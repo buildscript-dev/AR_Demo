@@ -1,5 +1,7 @@
 package com.example.ardemo.screen
 
+import android.app.Activity
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -22,17 +24,27 @@ import androidx.navigation.NavController
 import com.example.ardemo.navigation.AboutScreen
 import com.example.ardemo.navigation.ProtoScreen
 
+
 @Composable
 fun HomeScreen(navController: NavController){
+    val activity = LocalActivity.current
+
     Column(modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally){
+        horizontalAlignment = Alignment.CenterHorizontally) {
 
 
-        Box(modifier = Modifier.fillMaxWidth()
-            .padding(20.dp),
-            contentAlignment = Alignment.Center){
-            Text("AR App", fontSize = 30.sp, fontWeight = FontWeight.Bold, color = generateRandomLightColor())
+        Box(
+            modifier = Modifier.fillMaxWidth()
+                .padding(20.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                "AR App",
+                fontSize = 30.sp,
+                fontWeight = FontWeight.Bold,
+                color = generateRandomLightColor()
+            )
         }
 
 
@@ -52,8 +64,8 @@ fun HomeScreen(navController: NavController){
             Text("Play", fontSize = 24.sp, fontWeight = FontWeight.Bold)
         }
 
-            Button(
-                onClick = {navController.navigate(AboutScreen)},
+        Button(
+            onClick = { navController.navigate(AboutScreen) },
             shape = RoundedCornerShape(12.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = generateRandomLightColor(),
@@ -67,21 +79,19 @@ fun HomeScreen(navController: NavController){
             Text("About This", fontSize = 24.sp, fontWeight = FontWeight.Bold)
         }
 
-    Button(
-                onClick = {navController.navigate(AboutScreen)},
+        Button(
+            onClick = { activity?.finish() },
             shape = RoundedCornerShape(12.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = generateRandomLightColor(),
+                containerColor = generateRandomLightColor()
             ),
             modifier = Modifier
                 .fillMaxWidth(0.7f)
                 .padding(8.dp)
-                .clip(RoundedCornerShape(12.dp))
                 .height(60.dp)
-
-    ) {
+        ) {
             Text("Exit", fontSize = 24.sp, fontWeight = FontWeight.Bold)
         }
-
     }
 }
+

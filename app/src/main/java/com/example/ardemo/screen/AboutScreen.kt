@@ -58,6 +58,19 @@ fun AboutScreen(navController: NavHostController) {
         SectionTitle("Additional Features")
         SectionBody("• About: Opens this screen with detailed information.")
         SectionBody("• Exit: Closes the application.")
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        SectionTitle("Developer Info")
+        SectionBody("Developed by Madara Uchiha")
+        SectionBody("This project was built as part of a learning journey to explore AR and Jetpack Compose in Android.")
+        SectionBody("Source code and contributions are managed privately but may be shared for educational use.")
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        SectionTitle("License")
+        SectionBody("This app is open for personal and educational use.")
+        SectionBody("Please provide credit if you reuse any part of this project.")
     }
 }
 
