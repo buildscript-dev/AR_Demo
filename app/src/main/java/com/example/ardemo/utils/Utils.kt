@@ -13,6 +13,9 @@ import io.github.sceneview.node.ModelNode
 object Utils {
     val protos = mapOf(
         "Cube" to "cube.glb",
+//        "Ball2" to "ball2.glb",
+//        "Ball3" to "ball3.usdz",
+        "Ball4" to "ball4.gltf",
     )
 
 
@@ -35,11 +38,14 @@ object Utils {
                 if (isEmpty()) {
                     this += modelLoader.createInstancedModel(model, 10)
                 }
-            }.removeLast(),
+            }
+//                .removeAt(modelInstance.lastIndex),
+                .removeLast(),
             scaleToUnits = 0.2f
         ).apply {
             isEditable = true
         }
+
         val boundingBox = CubeNode(
             engine = engine,
             size = modelNode.extents,

@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.ardemo"
-        minSdk = 24
+        minSdk = 33
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
@@ -59,6 +59,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.arsceneview)
+    implementation(libs.sceneview)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.navigation.compose)
 }
